@@ -20,4 +20,4 @@ RUN mvn package -DskipTests
 # COPY /app/target/helloworld-0.0.1-SNAPSHOT.jar /helloworld.jar
 
 # Run the web service on container startup.
-CMD ["java","-Djava.security.egd=file:/dev/./urandom","-Dserver.port=8080","-jar","/app/target/helloworld-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-Djava.security.egd=file:/dev/./urandom","-Dserver.port=8080","-jar","/app/target/knative-java-demo-0.0.1-SNAPSHOT.jar"]
