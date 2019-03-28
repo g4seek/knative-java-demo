@@ -1,0 +1,16 @@
+*.iml
+*.idea
+.settings
+.classpath
+.project
+.DS_Store
+.tmp
+.sass-cache
+.DS_Store*.prefs
+*.class
+*.jsdtscope
+*.launch
+build
+target
+/log
+/logs
