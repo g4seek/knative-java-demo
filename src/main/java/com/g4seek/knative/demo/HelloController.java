@@ -1,19 +1,11 @@
-/**
- * @(#)HelloworldController.java, 2019年03月28日.
- * Copyright 2019 Netease, Inc. All rights reserved.
- * NETEASE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
-package com.example.helloworld;
+package com.g4seek.knative.demo;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author hzlvzimin
- */
 @RestController
-public class HelloworldController {
+public class HelloController {
 
     @Value("${TARGET:World}")
     String target;
