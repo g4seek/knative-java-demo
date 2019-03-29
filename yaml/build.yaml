@@ -3,7 +3,7 @@ kind: Build
 metadata:
   name: knative-java-demo
 spec:
-  serviceAccountName: g4seek-dockerhub-account
+  serviceAccountName: g4seek-build-bot
   source:
     git:
       url: https://github.com/g4seek/knative-java-demo.git
