@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1alpha1
 kind: Service
 metadata:
-  name: knative-build-demo
+  name: knative-java-build-demo
   namespace: default
 spec:
   runLatest:
@@ -16,8 +16,8 @@ spec:
         name: kaniko
         arguments:
           - name: IMAGE
-            value: docker.io/g4seek/knative-java-demo:latest
+            value: docker.io/g4seek/knative-java-build-demo:latest
       revisionTemplate:
         spec:
           container:
-            image: docker.io/g4seek/knative-java-demo:latest
+            image: docker.io/g4seek/knative-java-build-demo:latest
