@@ -2,32 +2,39 @@
 
 ## QUICK START
 
-### 预先准备
 1. 安装和配置 docker,kubernetes,istio,knative
-
-### Serving
-1. 构建docker镜像 
-    ```
-    
-    cd script
-    sh build_push_image.sh
-    ```
-2. 运行serving
+2. 创建secret 
     ```
     cd yaml
-    kubectl apply -f serving.yaml
+    cp secret.yaml.sample secret.yaml
+    vim secret.yaml
+    kubectl apply -f secret.yaml
+    ```
+3. 创建service account
+    ```
+    cd yaml
+    kubectl apply -f service_account.yaml
     ```
 
-3. 测试服务
+4. 构建docker镜像并推送到dockerhub
     ```
-    kubectl get service helloworld-java
-    export DOMAIN_NAME=$(kubectl get ksvc helloworld-java --output jsonpath={.status.domain})
+    cd yaml
+    kubectl apply -f build.yaml
+    ```
+    
+5. 拉取镜像并创建服务
+    ```
+    cd yaml
+    kubectl apply -f service.yaml
+    ```
+
+6. 验证服务
+    ```
+    kubectl get service knative-java-demo
+    export DOMAIN_NAME=$(kubectl get ksvc knative-java-demo --output jsonpath={.status.domain})
     export IP_ADDRESS=$(kubectl get svc istio-ingressgateway --namespace istio-system --output jsonpath="{.spec.clusterIP}")
     curl -H "Host: ${DOMAIN_NAME}" http://${IP_ADDRESS}   
     ```
-
-### Build
-1. 构建
 
 ## 参考文档
 https://www.knative.dev/docs/serving/samples/hello-world/helloworld-java/
