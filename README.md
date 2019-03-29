@@ -32,3 +32,4 @@
 ## 参考文档
 https://www.knative.dev/docs/serving/samples/hello-world/helloworld-java/
 https://www.knative.dev/docs/build/builds/
+https://www.knative.dev/docs/build/build-templates/

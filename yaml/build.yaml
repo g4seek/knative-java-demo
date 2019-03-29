@@ -1,21 +1,16 @@
 apiVersion: build.knative.dev/v1alpha1
 kind: Build
 metadata:
-  name: knative-java-demo
+  name: knative-java-build-demo
 spec:
   serviceAccountName: g4seek-build-bot
   source:
     git:
       url: https://github.com/g4seek/knative-java-demo.git
       revision: master
-  parameters:
-    - name: IMAGE
-      description: g4seek/knative-java-demo
-    - name: DOCKERFILE
-      description: ../Dockerfile
   steps:
     - name: build-and-push
-      image: gcr.io/kaniko-project/executor
+      image: gcr.io/kaniko-project/executor:latest
       args:
-        - --dockerfile=${DOCKERFILE}
-        - --destination=${IMAGE}
+        - --dockerfile=/workspace/Dockerfile
+        - --destination=docker.io/g4seek/knative-java-demo
