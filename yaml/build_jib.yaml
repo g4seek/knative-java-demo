@@ -1,0 +1,14 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: knative-java-build-demo-jib
+spec:
+  source:
+    git:
+      url: https://github.com/g4seek/knative-java-demo.git
+      revision: master
+  template:
+    name: jib-maven
+    arguments:
+      - name: IMAGE
+        value: docker.io/g4seek/knative-java-demo
